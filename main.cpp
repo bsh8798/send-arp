@@ -29,10 +29,8 @@ int main(int argc, char *argv[])
     char ip_addr[16];
     GetMacAddressFromInterface(dev, src_mac, ip_addr);
 
-    printf("%s\n", src_mac);
-    printf("%s\n", ip_addr);
     //find sender_mac address using arp request
-    /*int pair = argc / 2 - 1;
+    int pair = argc / 2 - 1;
     for(int i = 0; i < pair; i++)
     {
         char* sender_ip = argv[2 + (2 * i)];
@@ -40,10 +38,5 @@ int main(int argc, char *argv[])
 
         char* target_ip = argv[3 + (2 * i)];
         arpReplyAttack(pcap, target_ip, sender_ip, src_mac, dst_mac);
-    }*/
-    char* sender_ip = argv[2];
-    arpRequest(pcap, ip_addr, sender_ip, src_mac, dst_mac);
-
-    char* target_ip = argv[3];
-    arpReplyAttack(pcap, target_ip, sender_ip, src_mac, dst_mac);
+    }
 }
